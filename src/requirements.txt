@@ -1,0 +1,64 @@
+HomePage -> Al iniciar sesión saldrá pantalla inicio, con un resumen de 
+más ventas a través de la aplicación, así como un 
+resumen de los datos sobre tendencias y toda etc.
+
+Hub 1:
+Configuración y personalización de landing page en 
+la aplicación móvil
+
+Hub 2:
+Visualización extendida sobre datos, tendencias y toda la 
+información en tiempo real recopilada de los sensor.
+
+Hub 3:
+Agilizador de certificaciones para exportación 
+(tipo según cómo y bajo qué condiciones exportar 
+te pediremos que subas subas ciertos datos y 
+te creamos un etiqueta virtual de exportación para tus 
+prendas y ajustada a cada país) 
+(también nos encargaremos nosotros de hacer las pruebas 
+regulatorias, de momento se subcontrará a un 
+laboratorio para eso)
+
+Hub 4:
+Te muestra toda la información en tiempo real de los datos 
+del sensor enfocados en la cadena de suministros, como 
+cuántas prendas hay en cada almacén, cuántas se están 
+creando por día/hora, si hay demanda o no. 
+Se planea con IA y machine learning dar sugerencia en base 
+a la información recopilada sobre cuánta producción y 
+distribución debería de ir en el almacén en base a la 
+información recopilada y tratada de todo el sistema.
+
+Hub 5:
+-sitio de mkt- Aquí podrán participar en las subastas 
+semanales de posición (en el apartado de tiendas en la 
+app móvil) y palabras en la barras de búsqueda, así como 
+contratar y configurar la publicidad que se mostrará 
+dentro de la toda la app móvil
+
+Hub 6:
+Configurar lo que quieres que se muestre cuando el cliente 
+final escanea el rfid de una prenda de tu marca 
+(experiencia pos-venta), por ejemplo que se muestre un 
+vídeo, que te mande a su página web, que te muestre algún 
+código de descuento en compras futuras, etc.
+
+Hub 7:
+Control y visualización de la seguridad y autenticidad de 
+tus lotes/prendas/productos, podrán ver si cierto 
+lote/prenda/producto, está bajo la protección que se 
+ofrece por medio de blockchain para evitar la piratería 
+de estos (está por decidirse si usar blockchain u otra 
+tecnología), si no esté contratado el servicio allí mismo 
+se contrata
+
+Hub 8:
+Desglose de pagos.
+Visualización de lo que se tiene contratado y se debe de 
+pagar en cada fecha de corte, ya sea si es un servicio 
+que se cobrará cada cierto tiempo, si has comprado 
+publicidad o participado en una subasta, y el conteo en 
+tiempo real de los escaneos que se han hecho en total a 
+todos tus productos, transformando ese número a cuánto 
+debes pagar en total por ellos.

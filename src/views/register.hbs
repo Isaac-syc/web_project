@@ -1,0 +1,218 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration</title>
+    <!-- Add your CSS styles or link to an external stylesheet here -->
+    <style>
+      body { font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa; } .main { margin-bottom: 20vh; } .card {
+      border: none; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0,
+      0.1); } .card-title { color: #343a40; } .color-azul { color: #007bff; }
+      .bold {
+        font-weight: bold;
+      }
+      #rgs_lbl{
+        color:#ffffff;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    ></script>
+  </head>
+
+  <body>
+    {{> nav_reg_log}}
+
+    <div class="bg-shortcancelled main">
+      <div class="container">
+        <div class="col-lg-12 mx-auto pt-4">
+          <div class="card">
+
+            <div class="fletes-light texto-chico m-3">
+              <div class="m-4">
+                <h5 class="card-title pb-3 text-uppercase fw-bold text-center">
+                  Registrarse
+                  <br />
+                  ¡Bienvenido, a
+                  <label class="color-azul">COMPANY NAME</label>
+                  !</h5>
+                    <div class="">
+                      {{#check errors}}
+                      <div class="alert alert-danger">
+                          {{errors.[0]}}
+                      </div>
+                      {{/check}}
+
+                  </div>
+                <h6 class="pb-4 fw-bold">Aquí podrá consultar la popularidad de
+                  su marca a través de nuestro portal web.</h6>
+                <form
+                  action="/register"
+                  method="POST"
+                  id="register-form"
+                >
+
+                  <div class="">
+                    <div class="row pb-3">
+                      <div class="col-lg-6 text-center">
+                        <label class="text-uppercase"><b>Registro Federal de
+                          Contribuyentes:</b></label>
+                        <input
+                          class="form-control inputPaddingSF texto-chico"
+                          id="rfcReg"
+                          name="rfcReg"
+                          type="text"
+                          placeholder="Ingrese el RFC de su Empresa"
+                          style="text-transform: uppercase"
+                          maxlength="13"
+                          value=""
+                          required
+                        />
+                      </div>
+                      <div class="col-lg-6 text-center">
+                        <label class="text-uppercase bold">Nombre de la Empresa:</label>
+                        <input
+                          class="form-control inputPaddingSF texto-chico text-uppercase"
+                          id="companyName"
+                          name="companyName"
+                          type="text"
+                          placeholder="Ingrese el Nombre Comercial de su Empresa"
+                        />
+                      </div>
+                    </div>
+                    <div class="row pb-3">
+                      <div class="col-lg-4">
+                        <label class="text-uppercase bold">Nombre(s):</label>
+                        <input
+                          class="form-control inputPaddingSF texto-chico text-uppercase"
+                          id="name"
+                          name="name"
+                          type="text"
+                          placeholder="Ingrese su Nombre(s)"
+                          required
+                        />
+                      </div>
+                      <div class="col-lg-4">
+                        <label class="text-uppercase bold">Apellido Paterno:</label>
+                        <input
+                          class="form-control inputPaddingSF texto-chico text-uppercase"
+                          id="last_name_pat"
+                          name="last_name_pat"
+                          type="text"
+                          placeholder="Ingrese su Apellido Paterno"
+                          required
+                        />
+                      </div>
+                      <div class="col-lg-4">
+                        <label class="text-uppercase bold">Apellido Materno:</label>
+                        <input
+                          class="form-control inputPaddingSF texto-chico text-uppercase"
+                          id="last_name_m"
+                          name="last_name_m"
+                          type="text"
+                          placeholder="Ingrese su Apellido Materno"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="row pb-3">
+                      <div class="col-lg-4">
+                        <span class="text-uppercase bold">Numero de Telefono:</span>
+                        <input
+                          class="form-control inputPaddingSF texto-chico text-uppercase"
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          maxlength="12"
+                          required
+                          placeholder="Ingrese su numero"
+                        />
+                      </div>
+                      <div class="col-lg-4">
+                        <span class="text-uppercase bold">Nombre de Usuario:</span>
+                        <input
+                          class="form-control inputPaddingSF texto-chico text-uppercase"
+                          id="user_name"
+                          name="user_name"
+                          type="text"
+                          placeholder="Ingrese su Usuario"
+                          required
+                        />
+                      </div>
+                      <div class="col-lg-4">
+                        <span class="text-uppercase bold">Correo Electrónico:</span>
+                        <input
+                          class="form-control inputPaddingSF texto-chico text-uppercase"
+                          id="email"
+                          name="email"
+                          type="text"
+                          placeholder="Ingrese su Correo Electrónico"
+                          value=""
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <span class="text-uppercase">Contraseña:</span>
+                        <input
+                          class="form-control inputPaddingSF texto-chico"
+                          id="password"
+                          name="password"
+                          type="password"
+                          placeholder=""
+                          onkeyup="validarContraseña()"
+                          required
+                        />
+                      </div>
+                      <div class="col-lg-4" id="pass">
+                        <span class="text-uppercase">Confirme su Contraseña:</span>
+                          <input
+                            id="passwordConfirmation"
+                            name="passwordConfirmation"
+                            type="password"
+                            class="form-control inputPaddingSF texto-chico"
+                            placeholder="Confirme su  Contraseña"
+                            aria-label="Confirma Contraseña"
+                            required
+                          />
+                      </div>
+                      <div class="col-lg-4 ">
+                        <span class=""id="rgs_lbl">s</span>
+                        <button
+                          type="submit"
+                          class="btn btn-primary rounded-pill texto-chico w-100"
+                          id="registrar"
+                          style="padding: 0.375rem 2.75rem;"
+                        >
+                          Registrarse
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <hr />
+                <div >
+                  Si ya tiene una cuenta.
+                  <a href="/login">Inicie Sesión</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add your script tags for JavaScript here, if needed -->
+
+  </body>
+
+</html>

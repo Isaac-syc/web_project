@@ -1,0 +1,439 @@
+/*DEFAULT STYLES*/
+.circle {
+  display: flex;
+  align-items: center;
+}
+.rounded-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.red {
+  border: 1px solid red;
+}
+
+.green {
+  border: 1px solid green;
+}
+
+.login-left {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
+  opacity: 0.9;
+  height: 600px;
+  border-radius: 3px;
+}
+
+#brandImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.color-azul {
+  color: #13278a;
+}
+.paragraph {
+  font-family: "Poppins";
+  font-size: 18px;
+  text-align: justify;
+}
+.boldPoppins {
+  font-family: "Poppins";
+  font-size: 55px;
+  font-weight: 700;
+  line-height: 72.6px;
+  word-wrap: break-word;
+  color: black;
+}
+
+.text {
+  font-family: "Poppins";
+  font-size: 24px;
+  font-weight: 500;
+  /*line-height: 45px;*/
+  letter-spacing: 0em;
+  text-align: left;
+  color: #000000ab;
+  word-wrap: break-word;
+}
+
+.slider-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 3000px;
+  margin: 0 auto;
+  height: 100px;
+  background-color: #fff;
+}
+.slider {
+  width: 200%;
+  display: flex;
+  animation: scrollImages 30s linear infinite;
+}
+.slider-img {
+  max-width: 300px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.contactForm {
+  margin-top: 100px;
+}
+@keyframes scrollImages {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.btnLink {
+  font-size: 24px;
+  width: 200px;
+  height: 40px;
+  background-color: #ffe798;
+  border: 1px solid #000;
+  color: #000;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  padding: 0;
+}
+.btnLink:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+/*CONTACT WEBPAGE*/
+.btnLinkContact {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  width: 200px;
+  height: 40px;
+  background-color: #f7f9fc;
+  border: 1px solid #000;
+  color: #000;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+}
+.btnLinkContact:hover {
+  color: #000;
+  text-decoration: none;
+}
+.textContact {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000000;
+}
+
+#open-chat-btn,
+#close-chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#open-chat-btn {
+  background-color: #007bff;
+}
+
+#open-chat-btn:hover,
+#close-chat-btn:hover {
+  background-color: #0056b3;
+}
+
+#chat-window header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+#chat-window {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 300px; /* Set your desired height */
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  /*z-index: 9999; */
+}
+
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 92%;
+  overflow-y: auto;
+  padding: 10px; /* Adjust the padding as needed */
+}
+
+#chat-messages {
+  flex: 1;
+  max-height: 100%;
+  overflow-y: auto;
+  margin-bottom: 5px; /* Adjust the margin as needed */
+}
+
+#element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0; /* Adjust the padding as needed */
+}
+#chat-input,
+#send-btn {
+  height: 30px; /* Set the height to the desired value */
+  box-sizing: border-box;
+  margin: 0; /* Reset margin to remove default spacing */
+}
+
+#send-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+}
+
+/*
+#chat-messages .sent-message {
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+#chat-messages .received-message {
+  color: #000;
+  background-color: #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+*/
+
+/* Add styles for sent messages and left rows */
+#chat-messages .sent-message,
+#chat-messages .left-row {
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  width: auto; /* Set width to auto */
+  display: inline-block; /* Make it inline-block to cover only the text width */
+}
+
+/* Add styles for received messages and right rows */
+#chat-messages .received-message,
+#chat-messages .right-row {
+  color: #000;
+  background-color: #ccc;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  width: auto; /* Set width to auto */
+  display: inline-block; /* Make it inline-block to cover only the text width */
+}
+
+#send-btn:hover {
+  background-color: #0056b3;
+}
+
+/******************************************/
+
+.image-section {
+  width: 100%;
+}
+
+.image-section img {
+  margin-top: 150px;
+  max-width: 60%;
+  height: 60%;
+}
+#buttonsDiv {
+  margin-top: 20px;
+}
+#buttonsWorks {
+  margin-top: 20px;
+}
+#sliderContainer {
+  margin-top: 20px;
+  background-color: #fff;
+}
+#sliderTitle {
+  font-weight: bold;
+  font-size: 18px !important;
+}
+
+/*EXTRA SMALL SCREEENS*/
+@media (max-width: 575.98px) {
+  .image-section {
+    width: 100%;
+    display: inline;
+  }
+  .image-section .imgBanner {
+    margin-top: 50px;
+    max-width: 100%;
+    height: 100%;
+  }
+  #buttonsDiv {
+    margin-top: 0px;
+  }
+  #buttonsWorks {
+    margin-top: 0px;
+  }
+
+  .text-section {
+    margin-top: 50px;
+  }
+
+  .btnLinkRight {
+    margin-left: 0;
+    font-size: 16px;
+    max-width: 150px;
+    margin-left: 50px;
+  }
+  .btnLinkLeft {
+    margin-left: 0;
+    font-size: 16px;
+    max-width: 150px;
+  }
+  .boldPoppins {
+    font-family: "Poppins";
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 40px;
+    word-wrap: break-word;
+    color: black;
+  }
+  .paragraph {
+    font-family: "Poppins";
+    font-size: 14px;
+    text-align: justify;
+  }
+  #sliderContainer {
+    margin-top: 20px;
+    background-color: #fff;
+  }
+  .text {
+    font-family: "Poppins";
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 20x;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000ab;
+    word-wrap: break-word;
+  }
+  .circleIcon {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+    align-items: center; /* Center items horizontally within the row */
+    text-align: center; /* Center text within the columns */
+  }
+  .align-self-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .align-self-center .col-sm-2 {
+    margin-bottom: 10px; /* Adjust this value as needed */
+  }
+}
+.headerNormal {
+  font-family: "Poppins";
+}
+.labelText {
+  font-family: "Poppins";
+}
+
+/*MEDIUM*/
+@media (max-width: 991px) {
+  .image-section {
+    width: 100%;
+  }
+  .image-section .imgBanner {
+    margin-top: 100px;
+    max-width: 100%;
+    height: 40%;
+  }
+  #buttonsDiv {
+    margin-top: 0px;
+    margin-bottom: 100px;
+  }
+
+  #buttonsWorks {
+    margin-top: 0px;
+  }
+  #sliderContainer {
+    margin-top: 20px;
+    background-color: #fff;
+  }
+  #sliderTitle {
+    font-weight: bold;
+    font-size: 14px !important;
+  }
+  .text {
+    font-family: "Poppins";
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: justify;
+    color: #000000ab;
+    word-wrap: break-word;
+  }
+  .titleHeader {
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000ab;
+    word-wrap: break-word;
+    font-weight: bold;
+    text-align: center;
+  }
+  .paragraph {
+    font-family: "Poppins";
+    font-size: 14px;
+    text-align: justify;
+  }
+  .circleIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .circleIcon .col-sm-2 {
+    margin-bottom: 10px; /* Adjust this value as needed */
+  }
+  .cardSpace {
+    margin-top: 10px;
+  }
+}

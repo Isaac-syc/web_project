@@ -1,0 +1,196 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Perfil</title>
+    <style>
+      body { background-color: #f8f9fa; } .navbar { background-color: #343a40
+      !important; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); } .navbar-brand {
+      color: #ffc107 !important; font-weight: bold; } .navbar-brand:hover {
+      color: #ffca28 !important; } .navbar-nav .nav-link { color: #ffffff
+      !important; } .navbar-nav .nav-link:hover { color: #ffca28 !important; }
+      .content { margin: 20px; padding: 20px; background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); border-radius: 8px; }
+    </style>
+  </head>
+  {{> navbar}} 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <body>
+    <div class="content">
+      <h2>Mi Perfil</h2>
+
+      <p><strong>Name:</strong>
+        {{user.0.name}}
+        {{user.0.paterno}}
+        {{user.0.materno}}</p>
+      <p><strong>Email:</strong> {{user.0.email}}</p>
+      <p><strong>Phone:</strong> {{user.0.phone}}</p>
+      <div class="d-flex justify-content-end">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#modal-edit"
+        >Editar</button>
+      </div>
+    </div>
+
+    <div
+      class="modal fade bd-example-modal-lg"
+      tabindex="-1"
+      role="dialog"
+      id="modal-edit"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Datos</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <p class="text-center"><b>Datos Personales</b></p>
+            <div class="row">
+              <div class="col-lg-2">
+                <label for="nombres">Nombres:</label>
+              </div>
+              <div class="col-lg-10">
+
+                <input
+                  type="text"
+                  id="nombres"
+                  name="nombres"
+                  style="margin-left:5px; width:300px;"
+                  value="{{user.0.name}}"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <label for="paterno">Paterno:</label>
+              </div>
+              <div class="col-lg-10">
+
+                <input
+                  type="text"
+                  id="paterno"
+                  name="paterno"
+                  style="margin-left:5px; width:300px;"
+                  value="{{user.0.paterno}}"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <label for="materno">Materno:</label>
+              </div>
+              <div class="col-lg-10">
+
+                <input
+                  type="text"
+                  id="materno"
+                  name="materno"
+                  style="margin-left:5px; width:300px;"
+                  value="{{user.0.materno}}"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <label for="email">Correo:</label>
+              </div>
+              <div class="col-lg-10">
+
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  style="margin-left:5px; width:300px;"
+                  value="{{user.0.email}}"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-2">
+                <label for="modalLabel2">Telefono:</label>
+              </div>
+              <div class="col-lg-10">
+
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  style="margin-left:5px; width:300px;"
+                  maxlength="12"
+                  value="{{user.0.phone}}"
+                />
+              </div>
+            </div>
+            <!-- DATOS EMPRESA -->
+            <!--<p class="text-center" style="margin-top:5px;"><b>Datos Empresa</b></p>-->
+            <!--<div class="row">
+                    <div class="col-lg-2">
+                        <label for="modalLabel2">Nombre Comercial:</label>
+                    </div>
+                    <div class="col-lg-10">  
+                        <input type="text" id="nombre_comercial" name="nombre_comercial" style="margin-left:5px; width:300px;" value="{{user.[0].nombre_comercial}}">
+                    </div>
+                </div> -->
+            <!--<div class="row">
+                    <div class="col-lg-2">
+                        <label for="modalLabel2">RFC:</label>
+                    </div>
+                    <div class="col-lg-10">  
+                        <input type="text" id="rfc" name="rfc" style="margin-left:5px; width:300px;" value="{{user.[0].rfc}}">
+                    </div>
+                </div>         
+                -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="update_changes"
+            >Guardar Cambios</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  $(document).ready(function(){ $("#update_changes").on("click", function(){
+  Swal.fire({ title: "¿Desea actualizar sus datos?", showCancelButton: true,
+  confirmButtonText: "Guardar", }).then((result) => { if (result.isConfirmed) {
+  const updateData = { name : document.getElementById("nombres").value, paterno
+  : document.getElementById("paterno").value, materno :
+  document.getElementById("materno").value, email :
+  document.getElementById("email").value, phone :
+  document.getElementById("phone").value, //nombre_comercial:
+  document.getElementById("nombre_comercial").value, //rfc:
+  document.getElementById("rfc").value }; $.ajax({ url:"/update", type: "POST",
+  data: {updateData: updateData}, success: function(resp){ console.log(resp);
+  if(resp === "All good") { Swal.fire({ title: "Los datos se han actualizado",
+  confirmButtonText: 'Aceptar', allowOutsideClick: false, }).then((result) => {
+  if (result.isConfirmed) { location.reload(); } }); } } }) } }); }) })
+</script>

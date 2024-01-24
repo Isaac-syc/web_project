@@ -1,0 +1,81 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Contacto</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />  {{> nav_reg_log}}
+  </head>
+  
+
+  <body>
+      <div class="main contactForm">
+          <div class="container mt-5">
+            <h2 class="headerNormal">Contáctanos</h2>
+            <form id="contactForm" action="/submitContact" method="post">
+                <div class="form-group">
+                    <label class="labelText" for="name">Nombre:</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label class="labelText" for="email">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="labeltext" for="message">Mensaje:</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+      </div>
+   
+  </body>
+</html>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#contactForm").submit(function(e){
+            e.preventDefault();
+            let formData = {
+                name: $("#name").val(),
+                email: $("#email").val(),
+                message: $("#message").val()
+            };
+
+            $.ajax({
+                url: '/submitContact',
+                type: "POST",
+                data: formData,
+                success: function(res) {
+                    if(res.status === 'success') {
+                        Swal.fire({
+                            title: "Exito",
+                            text: 'El correo se ha enviado exitosamente',
+                            icon: "success",
+                            showCancelButton: false,
+                            allowOutsideClick:false,
+                            confirmButtonText: "Cerrar"
+                        }).then((result) => {
+                            if(result.isConfirmed) {
+                                window.location.href = 'http://localhost:8080/';
+                            }
+                        })
+                    }
+                    if(res.status === 'error') {
+                        Swal.fire({
+                            title: "Error",
+                            text: "No se ha podido enviar el correo",
+                            icon: "error"
+                        });
+                    }
+                }
+            })
+        })
+    });
+</script>

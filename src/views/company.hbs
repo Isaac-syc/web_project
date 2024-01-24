@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  {{> navbar}}
+  <body>
+    <h1>You are in the company webpage</h1>
+    <p><b>Company Name: </b> {{user.[0].nombre_comercial}}</p>
+    <form action="/generate" method="post" enctype="multipart/form-data" id="myForm">
+        <label for="text">Texto</label>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea>
+        <br>
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <br>
+        <input type="submit" value="Generar HTML">
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const response = await fetch('/generate', {
+                method: "POST",
+                body: new FormData(this),
+            });
+
+            const result = await response.text();
+            const resultObject = JSON.parse(result);
+
+            
+            
+
+            if(resultObject.flag.includes('Create')) {
+                Swal.fire({
+                    title: "Se ha creado la pagina",
+                    text: 'Haga click al botón para copiar el url',
+                    showCancelButton: false,
+                    allowOutsideClick:false,
+                    confirmButtonText: "Cerrar"
+                }).then((result ) => {
+                    if(result.isConfirmed) {
+                        navigator.clipboard.writeText(resultObject.url)
+                            .then(() => {
+                            Swal.close();
+                            Swal.fire("URL copiado al portapapeles");
+                            })
+                            .catch((error) => {
+                            console.error("Error copying to clipboard:", error);
+                            Swal.close();
+                            });
+                    }
+                })
+            }
+            if(resultObject.flag.includes('Update')) {
+                Swal.fire({
+                    title: "Se ha actualizado la pagina",
+                    text: 'Haga click al botón para copiar el url',
+                    showCancelButton: false,
+                    allowOutsideClick:false,
+                    confirmButtonText: "Cerrar"
+                }).then((result ) => {
+                    if(result.isConfirmed) {
+                        navigator.clipboard.writeText(resultObject.url)
+                            .then(() => {
+                            Swal.close();
+                            Swal.fire("URL copiado al portapapeles");
+                            })
+                            .catch((error) => {
+                            console.error("Error copying to clipboard:", error);
+                            Swal.close();
+                            });
+                    }
+                })
+            }
+        })
+    </script>
+  </body>
+</html>

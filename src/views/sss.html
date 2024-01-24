@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Window Example</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .content {
+      max-width: 800px;
+      width: 100%;
+    }
+
+    #chat-window {
+      display: none;
+      position: relative; 
+      
+      width: 100%;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    #chat-window header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+
+    #close-chat-btn {
+      cursor: pointer;
+      font-size: 20px;
+      color: #888;
+    }
+
+    #close-chat-btn:hover {
+      color: #555;
+    }
+
+    #chat-messages {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    #chat-input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-top: 8px;
+    }
+
+    #send-btn {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    #send-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="row">
+    <div class="content">
+      <div id="chat-window">
+        <header>
+          <strong>Chat Window</strong>
+          <span id="close-chat-btn" onclick="closeChatWindow()">×</span>
+        </header>
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleChatWindow() {
+      var chatWindow = document.getElementById('chat-window');
+      chatWindow.style.display = (chatWindow.style.display === 'none' || chatWindow.style.display === '') ? 'block' : 'none';
+    }
+
+    function closeChatWindow() {
+      document.getElementById('chat-window').style.display = 'none';
+    }
+
+    function sendMessage() {
+      var inputElement = document.getElementById('chat-input');
+      var message = inputElement.value;
+      var messagesContainer = document.getElementById('chat-messages');
+      messagesContainer.innerHTML += '<div>User: ' + message + '</div>';
+      inputElement.value = '';
+    }
+
+    document.getElementById('open-chat-btn').addEventListener('click', toggleChatWindow);
+  </script>
+
+</body>
+</html>

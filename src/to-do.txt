@@ -1,0 +1,14 @@
+Contact Page
+Card #1:
+copy number to clipboard -> done
+toggle a menu with the phone numbers -> pending
+
+Card #2:
+open a window to chat with someone ->pending
+Create chat part-> pending
+
+Card #4:
+Open a menu and place a shadow on the rest to select date, time -> pending
+It should show the available days -> pending
+After selecting the hour, it shows another menu asking for
+full name, company name, email, motive of the appointment

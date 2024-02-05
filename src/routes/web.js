@@ -77,6 +77,7 @@ let initWebRoutes = (app) => {
 
   //Contact Route
   router.get("/contacto", contactController.showContactPage);
+  router.post("/contacto", contactController.postContactReq);
   router.post("/submitContact", contactController.sendEmail);
   router.post("/firstMessage", contactController.firstMessage);
   router.post("/otherMessages", contactController.otherMessages);

@@ -1,190 +1,227 @@
-    
 <html lang="en">
-  <head>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Formulario Contacto</title>
-    {{> nav_reg_log}}
-    <link rel="stylesheet" href="/public/css/style.css"/>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" ></script>
-    
-    
-    <!--timepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<head>
 
-   
-    
-    <style>
-        .navbar { background-color: #fff !important; padding: 0; } .navbar-brand {
-            color: #000 !important; font-family: 'Recursive'; font-size: 44px; }
-            .nav-link { color: #000 !important; font-family: 'Poppins' !important; }
-            .nav-link:hover { font-weight: bold; }
-            .textContact {
-            text-align: center;
-            cursor: pointer;
-            }
-            /*Custom styles for datepicker*/
-            table.ui-datepicker-calendar td {
-                max-width: 50px !important;
-                text-align: center;
-                border: 0px white !important;               
-            }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulario Contacto</title>
+  {{> nav_reg_log}}
+  <link rel="stylesheet" href="/public/css/style.css" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-            table.ui-datepicker-calendar a {
-                text-align: center;
-                /*background-color: white !important;*/
-                border: 0px white !important;
-                font-size: 16px !important;
-                color: gray !important;
-                margin-top: 10px !important;
-            }
-           table.ui-datepicker-calendar a:hover {
-              background-color: #ccccb3 !important;
-            }
-            .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
-              background-color: #99c2ff !important;
-            }
-            #datepicker {
-              width: 100% !important;
-              box-sizing: content-box !important;
-            }
-            #datepicker  table {
-              width: 100% !important;
-            }
-            .ui-datepicker-inline {
-              width: 100% !important;
-              border: 0px white !important;
-            }
-            .ui-datepicker-header {
-              background-color: transparent !important;
-              border: 0px solid white !important;
-            }
-            .tooltip {
-              display: none;
-              position: absolute;
-              background-color: #f1f1f1;
-              border: 1px solid #ccc;
-              padding: 10px;
-              border-radius: 5px;
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-              z-index: 1;
-              bottom: 125%;
-              left: 50%;
-              transform: translateX(-50%);
-            }
-            #close-chat-btn {
-                cursor: pointer;
-                float: right; 
-            }
-            @import url(https://fonts.googleapis.com/css?family=Lato:700);
-            body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #f0f0f0;
-            }
 
-            .ribbon {
-            width: 150px;
-            height: 150px;
-            overflow: hidden;
-            position: absolute;
-            z-index: 9999; 
-            }
+  <!--timepicker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            .ribbon::before,
-            .ribbon::after {
-            position: absolute;
-            content: '';
-            display: block;
-            border: 5px solid #6c757d;
-            z-index: -1; 
-            }
 
-            .ribbon span {
-            position: absolute;
-            display: block;
-            width: 225px;
-            padding: 15px 0;
-            background-color: #6c757d;
-            box-shadow: 0 5px 10px rgba(0,0,0,.1);
-            color: #fff;
-            font: 700 18px/1 'Lato', sans-serif;
-            text-shadow: 0 1px 1px rgba(0,0,0,.2);
-            text-transform: uppercase;
-            text-align: center;
-            z-index: 1; 
-            }
+  <style>
+    .navbar {
+      background-color: #fff !important;
+      padding: 0;
+    }
 
-            .ribbon-top-right {
-            top: -10px;
-            right: -10px;
-            }
+    .navbar-brand {
+      color: #000 !important;
+      font-family: 'Recursive';
+      font-size: 44px;
+    }
 
-            .ribbon-top-right::before,
-            .ribbon-top-right::after {
-            border-top-color: transparent;
-            border-right-color: transparent;
-            }
+    .nav-link {
+      color: #000 !important;
+      font-family: 'Poppins' !important;
+    }
 
-            .ribbon-top-right::before {
-            top: 0;
-            left: 0;
-            }
+    .nav-link:hover {
+      font-weight: bold;
+    }
 
-            .ribbon-top-right::after {
-            bottom: 0;
-            right: 0;
-            }
+    .textContact {
+      text-align: center;
+      cursor: pointer;
+    }
 
-            .ribbon-top-right span {
-            left: -25px;
-            top: 35px;
-            transform: rotate(45deg);
-            }
-            .modal-card {
-                background-color: #fff;
-                border: none;
-            }
-            #ui-datepicker-div {
-                width: 35%;
-            }
+    /*Custom styles for datepicker*/
+    table.ui-datepicker-calendar td {
+      max-width: 50px !important;
+      text-align: center;
+      border: 0px white !important;
+    }
 
-            /*Styles for slider time*/
-            .slider-container {
-              position: relative;
-              height: 250px;
-              overflow-y: auto;
-            }
-            .slider-container::-webkit-scrollbar{
-              display: block;
-              width: 5px;
-            }
-            .slider-container::-webkit-scrollbar-thumb {
-              background-color: gray;
-              border-radius: 6px;
-              width: 12px;
-            }
-            .slider-container::-webkit-scrollbar-track {
-              background-color: white;
-              border-right: none;
-              border-left: none;
-            }
-            .slider-container::-webkit-scrollbar-track-piece:end {
-              background: transparent;
-              margin-bottom: 10px;
-            }
-            /*.slider-container::after {
+    table.ui-datepicker-calendar a {
+      text-align: center;
+      /*background-color: white !important;*/
+      border: 0px white !important;
+      font-size: 16px !important;
+      color: gray !important;
+      margin-top: 10px !important;
+    }
+
+    table.ui-datepicker-calendar a:hover {
+      background-color: #ccccb3 !important;
+    }
+
+    .ui-state-active,
+    .ui-widget-content .ui-state-active,
+    .ui-widget-header .ui-state-active {
+      background-color: #99c2ff !important;
+    }
+
+    #datepicker {
+      width: 100% !important;
+      box-sizing: content-box !important;
+    }
+
+    #datepicker table {
+      width: 100% !important;
+    }
+
+    .ui-datepicker-inline {
+      width: 100% !important;
+      border: 0px white !important;
+    }
+
+    .ui-datepicker-header {
+      background-color: transparent !important;
+      border: 0px solid white !important;
+    }
+
+    .tooltip {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #close-chat-btn {
+      cursor: pointer;
+      float: right;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Lato:700);
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f0f0;
+    }
+
+    .ribbon {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      position: absolute;
+      z-index: 9999;
+    }
+
+    .ribbon::before,
+    .ribbon::after {
+      position: absolute;
+      content: '';
+      display: block;
+      border: 5px solid #6c757d;
+      z-index: -1;
+    }
+
+    .ribbon span {
+      position: absolute;
+      display: block;
+      width: 225px;
+      padding: 15px 0;
+      background-color: #6c757d;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+      color: #fff;
+      font: 700 18px/1 'Lato', sans-serif;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+      text-transform: uppercase;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .ribbon-top-right {
+      top: -10px;
+      right: -10px;
+    }
+
+    .ribbon-top-right::before,
+    .ribbon-top-right::after {
+      border-top-color: transparent;
+      border-right-color: transparent;
+    }
+
+    .ribbon-top-right::before {
+      top: 0;
+      left: 0;
+    }
+
+    .ribbon-top-right::after {
+      bottom: 0;
+      right: 0;
+    }
+
+    .ribbon-top-right span {
+      left: -25px;
+      top: 35px;
+      transform: rotate(45deg);
+    }
+
+    .modal-card {
+      background-color: #fff;
+      border: none;
+    }
+
+    #ui-datepicker-div {
+      width: 35%;
+    }
+
+    /*Styles for slider time*/
+    .slider-container {
+      position: relative;
+      height: 250px;
+      overflow-y: auto;
+    }
+
+    .slider-container::-webkit-scrollbar {
+      display: block;
+      width: 5px;
+    }
+
+    .slider-container::-webkit-scrollbar-thumb {
+      background-color: gray;
+      border-radius: 6px;
+      width: 12px;
+    }
+
+    .slider-container::-webkit-scrollbar-track {
+      background-color: white;
+      border-right: none;
+      border-left: none;
+    }
+
+    .slider-container::-webkit-scrollbar-track-piece:end {
+      background: transparent;
+      margin-bottom: 10px;
+    }
+
+    /*.slider-container::after {
               content: '';
               position: absolute;
               z-index: -1;
@@ -194,128 +231,110 @@
               width: 5px;
               background: #666;
             }*/
-            .time-periods  {
-              /*position:absolute;
+    .time-periods {
+      /*position:absolute;
               top:0;
               left: 0;*/
-              width: 100%;
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-            }
-            .time-period {
-              flex:1;
-              padding: 8px;
-              display: flex;
-              align-items:center;
-              justify-content: center;
-              border:1px solid #007bff;
-              background-color: #fff;
-              color:#333;
-              border-radius: 4px;
-              margin-top: 5px;
-            }
-            .time-period:nth-child(n+36):nth-child(-n+61) {
-              background-color: #a0d3ff; 
-            }
-            .slider-container-navbar {
-              background-color: #007bff; 
-              padding: 10px; 
-              color: #fff; 
-              text-align: center; 
-              font-size: 18px; 
-              font-weight: bold; 
-            }
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .time-period {
+      flex: 1;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #007bff;
+      background-color: #fff;
+      color: #333;
+      border-radius: 4px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    .time-period:nth-child(n+36):nth-child(-n+61) {
+      background-color: #a0d3ff;
+    }
+
+    .slider-container-navbar {
+      background-color: #007bff;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
 
 
+</head>
 
-    </style>
-    
+<body>
+  <!--MODAL SCHEDULE-->
+  <div class="modal fade" id="modalSchedule">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
 
-  </head>
-  <body>
-    <!--MODAL SCHEDULE-->
-    <div class="modal fade" id="modalSchedule">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <div class="ribbon ribbon-top-right"><span style="font-size: 14px;">Calendario</span></div>
+        </div>
 
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h4 class="modal-title">Modal Heading</h4>
-            <div class="ribbon ribbon-top-right"><span
-                style="font-size: 14px;"
-              >Calendario</span></div>
-          </div>
-
-          <!-- Modal Body -->
-          <div class="modal-body">
-            <div class="row">
-              <!-- Left side with round image -->
-              <div class="col-lg-6">
-                <div class="card modal-card">
-                  <div class="card-body" style="border-color: #FFFFFF;">
-                    <div class="row h-100">
-                      <div class="col-lg-4">
-                        <img
-                          src="images/blue_round.jpg"
-                          alt="Round Image"
-                          class=""
-                          height="50px"
-                          width="50px"
-                          style="  border-radius: 50%;"
-                        />
-                      </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="row">
+            <!-- Left side with round image -->
+            <div class="col-lg-6">
+              <div class="card modal-card">
+                <div class="card-body" style="border-color: #FFFFFF;">
+                  <div class="row h-100">
+                    <div class="col-lg-4">
+                      <img src="images/blue_round.jpg" alt="Round Image" class="" height="50px" width="50px"
+                        style="  border-radius: 50%;" />
                     </div>
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <p
-                          class="paragraph"
-                          style="margin-bottom: 0 !important;"
-                        >Emprendimiento Tec</p>
-                        <p
-                          class="paragraph"
-                          style="margin:0; font-size:20px;"
-                        ><i
-                            class="fas fa-bolt"
-                            style="color: #f2df18; margin-right:5px;"
-                          ></i>
-                          <strong>Ask Away</strong></p>
-                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <p class="paragraph" style="margin-bottom: 0 !important;">Emprendimiento Tec</p>
+                      <p class="paragraph" style="margin:0; font-size:20px;"><i class="fas fa-bolt"
+                          style="color: #f2df18; margin-right:5px;"></i>
+                        <strong>Ask Away</strong>
+                      </p>
                     </div>
-                    <div class="row">
-                      <div class="col-lg-12">
-                        <p class="paragraph"><i
-                            class="fas fa-clock"
-                            style="margin-right:5px;"
-                          ></i>20 mins</p>
-                        <p class="paragraph"><i
-                            class="fas fa-map-marker-alt"
-                            style="margin-right: 5px;"
-                          ></i>Tecnológico de Monterrey, Campus Monterrey</p>
-                        <p class="paragraph">Conecta y conoce al experto que
-                          estabas buscando para avanzar en tu proceso de
-                          emprendimiento. Cada semana un experto diferente.
-                          Sesión 1 a 1 de 20 min.</p>
-                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <p class="paragraph"><i class="fas fa-clock" style="margin-right:5px;"></i>20 mins</p>
+                      <p class="paragraph"><i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i>Tecnológico
+                        de Monterrey, Campus Monterrey</p>
+                      <p class="paragraph">Conecta y conoce al experto que
+                        estabas buscando para avanzar en tu proceso de
+                        emprendimiento. Cada semana un experto diferente.
+                        Sesión 1 a 1 de 20 min.</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- Right side content -->
-              <div class="col-lg-6">
-                <div class="card modal-card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-lg-6">
-                        <p class="paragraph"><b>Seleccione una fecha y hora</b></p>
-                      </div>
+            </div>
+            <!-- Right side content -->
+            <div class="col-lg-6">
+              <div class="card modal-card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <p class="paragraph"><b>Seleccione una fecha y hora</b></p>
                     </div>
-                    <div class="row" id="datepickerRow">
-                      <div class="col-lg-12">
-                        <div id="datepicker"></div>
-                      </div>
+                  </div>
+                  <div class="row" id="datepickerRow">
+                    <div class="col-lg-12">
+                      <div id="datepicker"></div>
                     </div>
-                    <!--<div class="row">
+                  </div>
+                  <!--<div class="row">
                       <div class="col-lg-12">
                         
                         <div id="datepicker"></div>
@@ -325,306 +344,69 @@
                       </div>
                     </div>
                     -->
-                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Modal Footer -->
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >Cerrar</button>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="modalDate">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-body">
-            <!--First row-->
-            <div class="row d-flex align-items-center">
-              <div class="col-lg-6">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <a href="" id="backBtn"><i class="fas fa-arrow-left" style="font-size: 20px;"></i> </a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="row">
-                  <div class="col-lg-12 text-center">
-                    <p class="m-0 paragraph">Select a Date & Time</p>
-                  </div>
-                </div>  
-              </div>
-            </div>
-            <!--Second row-->
-            <div class="row" style="margin-top: 10px;">
-              <div class="col-lg-5">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <i class="fas fa-handshake" style="font-size: 30px;"></i>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <p class="paragraph">Mojo Customer Experience</p>
-                    <p class="paragraph">General Help Request</p>
-                    <p class="paragraph"><i class="fas fa-clock"></i> 30 min</p>
-                    <p class="paragraph">Have questions about your account? No problem! We are 
-                      happy to help and can walk you through any problems you may have.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-7">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <div id="datePickerFinal"></div>
-                  </div>
-                  <div class="col-lg-3 slider-container">
-                    <p class="paragraph" id="dateSelected">test</p>
-                    <div id="timePeriods" class="time-periods"></div>
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+
       </div>
     </div>
-   
-    <div class="container">
-      <div class="content">
-        <div class="container">
-          <div
-            class="row mainBanner"
-            style="background-color: #FFEFA7; display: flex; align-items: center;"
-          >
-
-            <div class="col-lg-8 col-8">
-              <div class="text-section" style="margin-top: 150px;">
-                <p
-                  class="paragraph"
-                  style="margin-bottom:0 !important; color: #00000063!important;"
-                >Digital Solutions</p>
-                <p class="boldPoppins" style="margin-top: 0 !important;">Contact
-                  Us About ZEMA’s Software solutions</p>
-                <p
-                  class="text"
-                  style="margin-top: 30px; text-align:justify;"
-                >We'd love to show you how you can increase your garment’s
-                  security, increase your sales productivity, provide better
-                  customer service, or all of the above! Here are a few ways to
-                  reach out to our sales team.</p>
+  </div>
+  <div class="modal fade" id="modalDate">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!--First row-->
+          <div class="row d-flex align-items-center">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12">
+                  <a href="" id="backBtn"><i class="fas fa-arrow-left" style="font-size: 20px;"></i> </a>
+                </div>
               </div>
             </div>
-
-            <div
-              class="col-lg-3 col-3"
-              style="margin-top: 100px; position: relative;"
-            >
-              <div class="image-container">
-                <img
-                  src="images/contact/img_contact.png"
-                  width="100%"
-                  height="100%"
-                  style="display: block; margin: 0 auto; z-index: 1; position: relative;"
-                />
-                <svg
-                  width="120%"
-                  height="120%"
-                  viewBox="0 0 421 402"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;"
-                >
-                  <defs>
-                    <linearGradient
-                      id="paint0_linear_369_62"
-                      x1="210.5"
-                      y1="-111"
-                      x2="210.5"
-                      y2="291"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="white" />
-                      <stop offset="1" stop-color="white" stop-opacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M0 201C0 89.9908 89.9908 0 201 0H220C331.009 0 421 89.9908 421 201C421 312.009 331.009 402 220 402H201C89.9908 402 0 312.009 0 201Z"
-                    fill="url(#paint0_linear_369_62)"
-                  />
-                </svg>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <p class="m-0 paragraph">Select a Date & Time</p>
+                </div>
               </div>
             </div>
           </div>
-          <div
-            class="row"
-            style="background-color: #FFEFA7; display: flex; align-items: center;"
-          >
-            <div class="col-lg-12 col-12">
-              <div class="container">
-                <div class="row" style="margin-bottom: 100px;">
-                  <!-- Card #1 -->
-                  <div class="col-lg-4 d-flex align-items-stretch">
-                    <div
-                      class="container mt-5 text"
-                      style="background-color: #FFEFA7;"
-                    >
-                      <div
-                        class="card text-center h-100"
-                        style="margin-bottom: 50px; background-color:#F7F9FC!important;"
-                      >
-                        <div
-                          class="card-header"
-                          style="background-color: #F7F9FC; border-bottom:none;"
-                        >
-                          <img
-                            src="images/contact/phone_icon.png"
-                            width="60px"
-                            height="45px"
-                          />
-                        </div>
-                        <div
-                          class="card-body"
-                          style="padding: 0; background-color:#F7F9FC"
-                        >
-                          <p
-                            class="card-text textContact"
-                            style="text-align: center;"
-                          >Call us directly</p>
-                          <p
-                            id="phoneNumber"
-                            class="textContact"
-                            onclick="copyToClipboard()"
-                          >+52 722 2958457</p>
-
-                          <a href="test.com"><p
-                              class="paragraph"
-                              style="text-align: center;"
-                            >See more local numbers</p></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Card #2 -->
-                  <div class="col-lg-4 d-flex align-items-stretch">
-                    <div
-                      class="container mt-5 text"
-                      style="background-color: #FFEFA7;"
-                    >
-                      <div class="card text-center h-100">
-                        <div
-                          class="card-header"
-                          style="background-color: #F7F9FC; border-bottom:none;"
-                        >
-                          <img
-                            src="images/contact/msg_icon.png"
-                            width="60px"
-                            height="45px"
-                          />
-                        </div>
-                        <div
-                          class="card-body"
-                          style="padding: 0; background-color:#F7F9FC"
-                        >
-                          <p
-                            class="card-text textContact"
-                            style="text-align: center; font-weight: 500;"
-                          >Chat with our sales team</p>
-                          <a
-                            href="https://example.com/discover-more"
-                            class="btnLinkContact"
-                            id="chatBtn"
-                          >Chat with sales</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Card #3 -->
-                  <div class="col-lg-4 d-flex align-items-stretch">
-                    <div
-                      class="container mt-5 text"
-                      style="background-color: #FFEFA7;"
-                    >
-                      <div class="card text-center h-100">
-                        <div
-                          class="card-header"
-                          style="background-color: #F7F9FC; border-bottom:none;"
-                        >
-                          <img
-                            src="images/contact/calendar_icon.png"
-                            width="60px"
-                            height="45px"
-                          />
-                        </div>
-                        <div
-                          class="card-body"
-                          style="padding: 0; background-color:#F7F9FC"
-                        >
-                          <p
-                            class="card-text textContact"
-                            style="text-align: center;"
-                          >Schedule a demo outfit</p>
-                          <a
-                            href="https://example.com/discover-more"
-                            class="btnLinkContact"
-                            id="demoSchedule"
-                          >Get a demo outfit</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+          <!--Second row-->
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-lg-5">
+              <div class="row">
+                <div class="col-lg-6">
+                  <i class="fas fa-handshake" style="font-size: 30px;"></i>
                 </div>
-
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="paragraph">Mojo Customer Experience</p>
+                  <p class="paragraph">General Help Request</p>
+                  <p class="paragraph"><i class="fas fa-clock"></i> 30 min</p>
+                  <p class="paragraph">Have questions about your account? No problem! We are
+                    happy to help and can walk you through any problems you may have.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="row" id="chatDiv">
-            <div class="content">
-              <div id="chat-window">
-                <div class="row">
-                  <div class="col-lg-8 col-8">
-                    <strong>Chat Window</strong>
-                  </div>
-                  <div class="col-lg-4 col-4" style="text-align: right;">
-                    <strong><i
-                        class="fa fa-times"
-                        style="color: black; cursor:pointer;"
-                        id="closeChat"
-                      ></i></strong>
-                  </div>
-                  <hr />
+            <div class="col-lg-7">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div id="datePickerFinal"></div>
                 </div>
-                <div
-                  class="row"
-                  id="chat-container"
-                  style="flex: 1; overflow-y: auto;"
-                >
-                  <div id="chat-messages"></div>
-                  <div id="element">
-                    <input
-                      type="text"
-                      id="chat-input"
-                      placeholder="Escriba algo"
-                      style="width: 80%; padding: 5px;"
-                    />
-                    <button
-                      id="send-btn"
-                      style="width: 18%; padding: 5px;"
-                    >Send</button>
-                  </div>
+                <div class="col-lg-3 slider-container">
+                  <p class="paragraph" id="dateSelected">test</p>
+                  <div id="timePeriods" class="time-periods"></div>
+
                 </div>
               </div>
             </div>
@@ -632,121 +414,322 @@
 
         </div>
       </div>
-
     </div>
-  </body>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const timePeriodsContainer = document.getElementById('timePeriods');
+  </div>
 
-      const startTime = 9 * 60; // 9:00 AM in minutes
-      const endTime = 15 * 60; // 3:00 PM in minutes
-      const interval = 15; // 15 minutes interval
+  <div class="modal fade" id="modalData">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-body">
+          <!--First row-->
+          <div class="row d-flex align-items-center">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12">
+                  <a href="" id="backBtn2"><i class="fas fa-arrow-left" style="font-size: 20px;"></i> </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <p class="m-0 paragraph">Información de contacto</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Second row-->
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-lg-5">
+              <div class="row">
+                <div class="col-lg-6">
+                  <i class="fas fa-handshake" style="font-size: 30px;"></i>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <p class="paragraph">Mojo Customer Experience</p>
+                  <p class="paragraph">General Help Request</p>
+                  <p class="paragraph"><i class="fas fa-clock"></i> 30 min</p>
+                  <p class="paragraph">Have questions about your account? No problem! We are
+                    happy to help and can walk you through any problems you may have.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <form id="requestForm">
+                <input hidden type="date" name="date" id="date">
+                <input hidden type="time" name="time" id="time">
 
-      generateTimePeriods(startTime, endTime, interval);
+                <div class="form-group">
+                  <label for="name">Nombre</label>
+                  <input class="form-control" type="text" name="name" id="name" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                  <label for="apellidos">Apellidos</label>
+                  <input class="form-control" type="text" name="last_name" id="last_name" placeholder="Apellidos">
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo electronico</label>
+                  <input class="form-control" type="email" name="email" id="email" placeholder="Correo electronico">
+                </div>
+                <div class="form-group">
+                  <label for="telephone">Numero Telefonico</label>
+                  <input class="form-control" type="number" name="telephone" id="telephone" placeholder="Numero Telefonico">
+                </div>
+                <button type="submit" class="btn btn-primary">Agendar</button>
+              </form>
+            </div>
+          </div>
 
-      function generateTimePeriods(start, end, step) {
-        const timePeriods = [];
-        
-        for (let i = start; i <= end; i += step) {
-          const timePeriod = document.createElement('div');
-          timePeriod.classList.add('time-period');
-          timePeriod.textContent = formatTime(i);
-          timePeriods.push(timePeriod);
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="container">
+        <div class="row mainBanner" style="background-color: #FFEFA7; display: flex; align-items: center;">
+
+          <div class="col-lg-8 col-8">
+            <div class="text-section" style="margin-top: 150px;">
+              <p class="paragraph" style="margin-bottom:0 !important; color: #00000063!important;">Digital Solutions</p>
+              <p class="boldPoppins" style="margin-top: 0 !important;">Contact
+                Us About ZEMA’s Software solutions</p>
+              <p class="text" style="margin-top: 30px; text-align:justify;">We'd love to show you how you can increase
+                your garment’s
+                security, increase your sales productivity, provide better
+                customer service, or all of the above! Here are a few ways to
+                reach out to our sales team.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-3" style="margin-top: 100px; position: relative;">
+            <div class="image-container">
+              <img src="images/contact/img_contact.png" width="100%" height="100%"
+                style="display: block; margin: 0 auto; z-index: 1; position: relative;" />
+              <svg width="120%" height="120%" viewBox="0 0 421 402" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;">
+                <defs>
+                  <linearGradient id="paint0_linear_369_62" x1="210.5" y1="-111" x2="210.5" y2="291"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="white" />
+                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M0 201C0 89.9908 89.9908 0 201 0H220C331.009 0 421 89.9908 421 201C421 312.009 331.009 402 220 402H201C89.9908 402 0 312.009 0 201Z"
+                  fill="url(#paint0_linear_369_62)" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="background-color: #FFEFA7; display: flex; align-items: center;">
+          <div class="col-lg-12 col-12">
+            <div class="container">
+              <div class="row" style="margin-bottom: 100px;">
+                <!-- Card #1 -->
+                <div class="col-lg-4 d-flex align-items-stretch">
+                  <div class="container mt-5 text" style="background-color: #FFEFA7;">
+                    <div class="card text-center h-100"
+                      style="margin-bottom: 50px; background-color:#F7F9FC!important;">
+                      <div class="card-header" style="background-color: #F7F9FC; border-bottom:none;">
+                        <img src="images/contact/phone_icon.png" width="60px" height="45px" />
+                      </div>
+                      <div class="card-body" style="padding: 0; background-color:#F7F9FC">
+                        <p class="card-text textContact" style="text-align: center;">Call us directly</p>
+                        <p id="phoneNumber" class="textContact" onclick="copyToClipboard()">+52 722 2958457</p>
+
+                        <a href="test.com">
+                          <p class="paragraph" style="text-align: center;">See more local numbers</p>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card #2 -->
+                <div class="col-lg-4 d-flex align-items-stretch">
+                  <div class="container mt-5 text" style="background-color: #FFEFA7;">
+                    <div class="card text-center h-100">
+                      <div class="card-header" style="background-color: #F7F9FC; border-bottom:none;">
+                        <img src="images/contact/msg_icon.png" width="60px" height="45px" />
+                      </div>
+                      <div class="card-body" style="padding: 0; background-color:#F7F9FC">
+                        <p class="card-text textContact" style="text-align: center; font-weight: 500;">Chat with our
+                          sales team</p>
+                        <a href="https://example.com/discover-more" class="btnLinkContact" id="chatBtn">Chat with
+                          sales</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card #3 -->
+                <div class="col-lg-4 d-flex align-items-stretch">
+                  <div class="container mt-5 text" style="background-color: #FFEFA7;">
+                    <div class="card text-center h-100">
+                      <div class="card-header" style="background-color: #F7F9FC; border-bottom:none;">
+                        <img src="images/contact/calendar_icon.png" width="60px" height="45px" />
+                      </div>
+                      <div class="card-body" style="padding: 0; background-color:#F7F9FC">
+                        <p class="card-text textContact" style="text-align: center;">Schedule a demo outfit</p>
+                        <a href="https://example.com/discover-more" class="btnLinkContact" id="demoSchedule">Get a demo
+                          outfit</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="chatDiv">
+          <div class="content">
+            <div id="chat-window">
+              <div class="row">
+                <div class="col-lg-8 col-8">
+                  <strong>Chat Window</strong>
+                </div>
+                <div class="col-lg-4 col-4" style="text-align: right;">
+                  <strong><i class="fa fa-times" style="color: black; cursor:pointer;" id="closeChat"></i></strong>
+                </div>
+                <hr />
+              </div>
+              <div class="row" id="chat-container" style="flex: 1; overflow-y: auto;">
+                <div id="chat-messages"></div>
+                <div id="element">
+                  <input type="text" id="chat-input" placeholder="Escriba algo" style="width: 80%; padding: 5px;" />
+                  <button id="send-btn" style="width: 18%; padding: 5px;">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const timePeriodsContainer = document.getElementById('timePeriods');
+
+    const startTime = 9 * 60; // 9:00 AM in minutes
+    const endTime = 15 * 60; // 3:00 PM in minutes
+    const interval = 15; // 15 minutes interval
+
+    generateTimePeriods(startTime, endTime, interval);
+
+    function generateTimePeriods(start, end, step) {
+      const timePeriods = [];
+
+      for (let i = start; i <= end; i += step) {
+        const timePeriod = document.createElement('div');
+        timePeriod.classList.add('time-period');
+        timePeriod.textContent = formatTime(i);
+        timePeriods.push(timePeriod);
+      }
+
+      timePeriodsContainer.innerHTML = '';
+      timePeriods.forEach(period => {
+        timePeriodsContainer.appendChild(period);
+      });
+    }
+
+    function formatTime(minutes) {
+      const hours = Math.floor(minutes / 60);
+      const mins = minutes % 60;
+      return `${hours < 10 ? '0' : ''}${hours}:${mins < 10 ? '0' : ''}${mins}`;
+    }
+  });
+
+  $(document).ready(function () {
+    let selectedDate = "";
+    $("#modalSchedule").on("shown.bs.modal", function () {
+      $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: 'Anterior',
+        nextText: 'Siguiente',
+        currentText: 'Hoy',
+        monthNames: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+          'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
+        monthNamesShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun',
+          'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+        dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+        dayNamesShort: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
+        dayNamesMin: ['DOM.', 'LUN.', 'MAR.', 'MIÉ.', 'JUE.', 'VIE.', 'SÁB.'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 0,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        onSelect: function (dateText, inst) {
+          //let selectedDate = $(this).datepicker('getDate');
+          selectedDate = $(this).datepicker('getDate');
+          if (selectedDate != "") {
+            $("#modalSchedule").modal("hide");
+            $("#modalDate").modal('show');
+            console.log("#selectedDate: ", dateText);
+
+            dateText = dateText.split("/");
+            dateText = dateText[2] + "-" + dateText[1] + "-" + dateText[0];
+            $("#date").val(dateText);
+          }
         }
-
-        timePeriodsContainer.innerHTML = '';
-        timePeriods.forEach(period => {
-          timePeriodsContainer.appendChild(period);
-        });
-      }
-
-      function formatTime(minutes) {
-        const hours = Math.floor(minutes / 60);
-        const mins = minutes % 60;
-        return `${hours < 10 ? '0' : ''}${hours}:${mins < 10 ? '0' : ''}${mins}`;
-      }
+      };
+      $("#datepicker").datepicker($.datepicker.regional['es']);
+      $("#datepicker").focus();
     });
 
-    $(document).ready(function() {
-      let selectedDate = "";
-    $("#modalSchedule").on("shown.bs.modal", function(){
-        $.datepicker.regional['es'] = {
-            closeText: 'Cerrar',
-            prevText: 'Anterior',
-            nextText: 'Siguiente',
-            currentText: 'Hoy',
-            monthNames: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
-                'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
-            monthNamesShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun',
-                'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
-            dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
-            dayNamesShort: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
-            dayNamesMin: ['DOM.', 'LUN.', 'MAR.', 'MIÉ.', 'JUE.', 'VIE.', 'SÁB.'],
-            weekHeader: 'Sm',
-            dateFormat: 'dd/mm/yy',
-            firstDay: 0,
-            isRTL: false,
-            showMonthAfterYear: false,
-            yearSuffix: '',
-            onSelect : function(dateText, inst) {
-                //let selectedDate = $(this).datepicker('getDate');
-                selectedDate = $(this).datepicker('getDate');
-                if(selectedDate != ""){
-                  $("#modalSchedule").modal("hide");
-                  $("#modalDate").modal('show');
-                  console.log("#selectedDate: ", selectedDate);
-                }
-            }
-        };
-        $("#datepicker").datepicker($.datepicker.regional['es']);
-        $("#datepicker").focus();
-    });
-
-    $("#modalDate").on("shown.bs.modal", function() {
-      $("#backBtn").on('click', function(e) {
+    $("#modalDate").on("shown.bs.modal", function () {
+      $("#backBtn").on('click', function (e) {
         e.preventDefault();
         $("#modalDate").modal('hide');
         $("#modalSchedule").modal("show");
       })
       $.datepicker.regional['es'] = {
-            closeText: 'Cerrar',
-            prevText: 'Anterior',
-            nextText: 'Siguiente',
-            currentText: 'Hoy',
-            monthNames: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
-                'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
-            monthNamesShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun',
-                'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
-            dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
-            dayNamesShort: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
-            dayNamesMin: ['DOM.', 'LUN.', 'MAR.', 'MIÉ.', 'JUE.', 'VIE.', 'SÁB.'],
-            weekHeader: 'Sm',
-            dateFormat: 'dd/mm/yy',
-            firstDay: 0,
-            isRTL: false,
-            showMonthAfterYear: false,
-            yearSuffix: '',
-        };
-        $("#datePickerFinal").datepicker($.datepicker.regional['es']);
-        if (selectedDate instanceof Date) {
-          $("#datePickerFinal").datepicker('setDate', selectedDate);
-          let copySelectedDate = new Date(selectedDate);
-           const formattedDate = copySelectedDate.toLocaleDateString('es-MX', {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric'
-  });
-
-  // Remove "de" from the formatted date
-  const modifiedFormattedDate = formattedDate.replace(' de', '');
-          $("#dateSelected").text(formattedDate);
-         
-        }
-
-
+        closeText: 'Cerrar',
+        prevText: 'Anterior',
+        nextText: 'Siguiente',
+        currentText: 'Hoy',
+        monthNames: ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+          'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'],
+        monthNamesShort: ['ene', 'feb', 'mar', 'abr', 'may', 'jun',
+          'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+        dayNames: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
+        dayNamesShort: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
+        dayNamesMin: ['DOM.', 'LUN.', 'MAR.', 'MIÉ.', 'JUE.', 'VIE.', 'SÁB.'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 0,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+      };
+      $("#datePickerFinal").datepicker($.datepicker.regional['es']);
+      if (selectedDate instanceof Date) {
+        $("#datePickerFinal").datepicker('setDate', selectedDate);
+        let copySelectedDate = new Date(selectedDate);
+        const formattedDate = copySelectedDate.toLocaleDateString('es-MX', {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric'
         });
+
+        // Remove "de" from the formatted date
+        const modifiedFormattedDate = formattedDate.replace(' de', '');
+        $("#dateSelected").text(formattedDate);
+
+      }
+
+    });
+
 
     /*$("#datepicker").on("change", function() {
       let selectedDate = $(this).datepicker('getDate');
@@ -755,163 +738,222 @@
         $("#modalDate").modal('show');
       }
     });*/
-});
+  });
 
-    function copyToClipboard() {
-        var copyText = document.getElementById("phoneNumber");
-        var tempInput = document.createElement("input");
-        tempInput.value = copyText.textContent;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); 
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
+  function copyToClipboard() {
+    var copyText = document.getElementById("phoneNumber");
+    var tempInput = document.createElement("input");
+    tempInput.value = copyText.textContent;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
 
-        var originalText = copyText.textContent;
-        copyText.textContent = "Se ha copiado al portapapeles";
-        
-        setTimeout(function() {
-            copyText.textContent = originalText; 
-        }, 2000);
-    }
+    var originalText = copyText.textContent;
+    copyText.textContent = "Se ha copiado al portapapeles";
+
+    setTimeout(function () {
+      copyText.textContent = originalText;
+    }, 2000);
+  }
 </script>
 
 
 
 
 <script>
-    $(document).ready(function() {
-        let conversationId = 0;
+  $(document).ready(function () {
+    let conversationId = 0;
 
 
-        $("#chatBtn").on("click", function(e){
-            e.preventDefault();
-            toggleChatWindow();
-        });
+    $("#chatBtn").on("click", function (e) {
+      e.preventDefault();
+      toggleChatWindow();
+    });
 
-        $("#demoSchedule").on("click", function(e){
-            e.preventDefault();
-            toggleModal();
+    $("#demoSchedule").on("click", function (e) {
+      e.preventDefault();
+      toggleModal();
 
-        });
+    });
 
-        function toggleModal(){
-            $("#modalSchedule").modal("show");
-            //$()
-        }
+    function toggleModal() {
+      $("#modalSchedule").modal("show");
+      //$()
+    }
 
 
-        function toggleChatWindow() {
-            var chatWindow = document.getElementById('chat-window');
-            chatWindow.style.display = (chatWindow.style.display === 'none' || chatWindow.style.display === '') ? 'block' : 'none';
+    function toggleChatWindow() {
+      var chatWindow = document.getElementById('chat-window');
+      chatWindow.style.display = (chatWindow.style.display === 'none' || chatWindow.style.display === '') ? 'block' : 'none';
 
-            // Start retrieving messages every 2 seconds when the chat window is opened
-            if (chatWindow.style.display === 'block') {
-                //startMessageRetrieval();
-            }
-        }
-
-        $("#closeChat").on("click", function(){
-            document.getElementById("chat-window").style.display = "none";
-            // Stop retrieving messages when the chat window is closed
-            stopMessageRetrieval();
-        });
-
-        $("#send-btn").on("click", function () {
-            var inputElement = document.getElementById('chat-input');
-            var message = inputElement.value;
-            inputElement.value = '';
-            const messageCount = document.getElementById('chat-messages').children.length;
-
-            if (messageCount === 0) {
-                firstMessage(message);
-            } else {
-                otherMessages(message, conversationId);
-            }
-        });
-
-        function firstMessage(message) {
-            $.ajax({
-                type: "POST",
-                url: "/firstMessage",
-                data: { message: message },
-                success: function(response) {
-                    console.log("First message sent: ", response);
-                    conversationId = response.insertedId;
-                    // Retrieve and display messages after sending the first message
-                    startMessageRetrieval();
-                    retrieveMessages(conversationId);
-                },
-                error: function(err) {
-                    console.log("Error sending first message: ", err);
-                }
-            });
-        }
-        function otherMessages(message, conversationId) {
-            $.ajax({
-                url: 'post',
-                url: '/otherMessages',
-                data: {message, conversationId},
-                success: function(response){
-                    console.log("Other messages sent: ", response);
-                }, 
-                error: function(err) {
-                    console.log("Error sending other messages: ", err);
-                }
-            });
-        }
-
-        // Function to retrieve messages every 2 seconds
-        function startMessageRetrieval() {
-            // Adjust the interval as needed (2 seconds in this example)
-            window.messageRetrievalInterval = setInterval(function() {
-                retrieveMessages(conversationId);
-            }, 2000);
-        }
-
-        // Function to stop retrieving messages
-        function stopMessageRetrieval() {
-            clearInterval(window.messageRetrievalInterval);
-        }
-
-        function retrieveMessages(conversationId) {
-        conversationIdNumber = conversationId.insertId;
-        $.ajax({
-            type: 'post',
-            url: "/getMessages",
-            data: { conversationId: conversationIdNumber },
-            success: function (resp) {
-                console.log("resp messages: ", resp.data);
-                updateChatUI(resp.data); // Move the updateChatUI call here
-            },
-            error: function (err) {
-                console.log("error: ", err);
-            }
-        });
-}
- 
-function updateChatUI(messages) {
-  const chatMessagesContainer = document.getElementById("chat-messages");
-  chatMessagesContainer.innerHTML = "";
-
-  if (messages.length > 0) {
-    messages.sort((a, b) => new Date(a.date_sent) - new Date(b.date_sent));
-    messages.forEach((message) => {
-      const messageContainer = document.createElement("div");
-      const messageElement = document.createElement("div");
-      messageElement.textContent = message.message;
-      messageContainer.appendChild(messageElement);
-      if (message.sender === 1) {
-        messageContainer.classList.add("sent-message", "left-row");
-      } else {
-        messageContainer.classList.add("received-message", "right-row");
+      // Start retrieving messages every 2 seconds when the chat window is opened
+      if (chatWindow.style.display === 'block') {
+        //startMessageRetrieval();
       }
-      chatMessagesContainer.appendChild(messageContainer);
+    }
+
+    $("#closeChat").on("click", function () { 
+      document.getElementById("chat-window").style.display = "none";
+      // Stop retrieving messages when the chat window is closed
+      stopMessageRetrieval();
     });
-  }
-  chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
-}
+
+    $("#send-btn").on("click", function () {
+      var inputElement = document.getElementById('chat-input');
+      var message = inputElement.value;
+      inputElement.value = '';
+      const messageCount = document.getElementById('chat-messages').children.length;
+
+      if (messageCount === 0) {
+        firstMessage(message);
+      } else {
+        otherMessages(message, conversationId);
+      }
     });
+
+    function firstMessage(message) {
+      $.ajax({
+        type: "POST",
+        url: "/firstMessage",
+        data: { message: message },
+        success: function (response) {
+          console.log("First message sent: ", response);
+          conversationId = response.insertedId;
+          // Retrieve and display messages after sending the first message
+          startMessageRetrieval();
+          retrieveMessages(conversationId);
+        },
+        error: function (err) {
+          console.log("Error sending first message: ", err);
+        }
+      });
+    }
+    function otherMessages(message, conversationId) {
+      $.ajax({
+        url: 'post',
+        url: '/otherMessages',
+        data: { message, conversationId },
+        success: function (response) {
+          console.log("Other messages sent: ", response);
+        },
+        error: function (err) {
+          console.log("Error sending other messages: ", err);
+        }
+      });
+    }
+
+    // Function to retrieve messages every 2 seconds
+    function startMessageRetrieval() {
+      // Adjust the interval as needed (2 seconds in this example)
+      window.messageRetrievalInterval = setInterval(function () {
+        retrieveMessages(conversationId);
+      }, 2000);
+    }
+
+    // Function to stop retrieving messages
+    function stopMessageRetrieval() {
+      clearInterval(window.messageRetrievalInterval);
+    }
+
+    function retrieveMessages(conversationId) {
+      conversationIdNumber = conversationId.insertId;
+      $.ajax({
+        type: 'post',
+        url: "/getMessages",
+        data: { conversationId: conversationIdNumber },
+        success: function (resp) {
+          console.log("resp messages: ", resp.data);
+          updateChatUI(resp.data); // Move the updateChatUI call here
+        },
+        error: function (err) {
+          console.log("error: ", err);
+        }
+      });
+    }
+
+    function updateChatUI(messages) {
+      const chatMessagesContainer = document.getElementById("chat-messages");
+      chatMessagesContainer.innerHTML = "";
+
+      if (messages.length > 0) {
+        messages.sort((a, b) => new Date(a.date_sent) - new Date(b.date_sent));
+        messages.forEach((message) => {
+          const messageContainer = document.createElement("div");
+          const messageElement = document.createElement("div");
+          messageElement.textContent = message.message;
+          messageContainer.appendChild(messageElement);
+          if (message.sender === 1) {
+            messageContainer.classList.add("sent-message", "left-row");
+          } else {
+            messageContainer.classList.add("received-message", "right-row");
+          }
+          chatMessagesContainer.appendChild(messageContainer);
+        });
+      }
+      chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+    }
+
+    $("#backBtn2").on('click', function (e) {
+        $("#modalData").modal('hide');
+        $("#modalDate").modal("show");
+    })
+
+    $('.time-period').click(function (e) { 
+      e.preventDefault();
+      var time = e.target.textContent.trim();
+      console.log(time);
+
+      $("#time").val(time);
+
+      $("#modalDate").modal('hide');
+      $("#modalData").modal("show");
+    });
+
+    $(document).ready(function(){
+        $("#requestForm").submit(function(e){
+            e.preventDefault();
+            let formData = {
+                name: $("#name").val(),
+                last_name: $("#last_name").val(),
+                email: $("#email").val(),
+                telephone: $("#telephone").val(),
+                date: $("#date").val(),
+                time: $("#time").val()
+            };
+
+            $.ajax({
+                url: '/contacto',
+                type: "POST",
+                data: formData,
+                success: function(res) {
+                    if(res.status === 'success') {
+                        Swal.fire({
+                            title: "Exito",
+                            text: 'El correo se ha su solicitud con exito',
+                            icon: "success",
+                            showCancelButton: false,
+                            allowOutsideClick:false,
+                            confirmButtonText: "Cerrar"
+                        }).then((result) => {
+                            $("#modalData").modal('hide');
+                        })
+                    }
+                    if(res.status === 'error') {
+                        Swal.fire({
+                            title: "Error",
+                            text: "No se ha podido enviar su solicitud",
+                            icon: "error"
+                        });
+                    }
+                }
+            })
+        })
+    });
+
+  });
 </script>
+
 
 </html>

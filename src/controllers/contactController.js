@@ -6,6 +6,34 @@ const { v4: uuidv4 } = require("uuid");
 let showContactPage = (req, res) => {
   res.render("contact");
 };
+const postContactReq = async (req, res) => {
+  try {
+    const { date, time, name, last_name, email, telephone } = req.body;
+    const datetime = new Date(date + " " + time);
+
+    const message = await saveContactReq(datetime, name, last_name, email, telephone);
+    res.json({ status: "success", message: message });
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const saveContactReq = async (datetime, name, last_name, email, telephone) => {
+  return new Promise((resolve, reject) => {
+    DBConnection.query(
+      "INSERT INTO contact_requests (id, name, last_name, email, telephone, date_request) VALUES (null, ?, ?, ?, ?, ?)",
+      [name, last_name, email, telephone, datetime],
+      function (err, result) {
+        if (err) {
+          reject(err);
+        } else {
+         resolve("request successfully");
+        }
+      }
+    );
+  });
+};
+
 const sendEmail = async (req, res) => {
   try {
     const { name, email, message } = req.body;
@@ -186,6 +214,7 @@ const getMessages = async (req, res) => {
 
 module.exports = {
   showContactPage: showContactPage,
+  postContactReq: postContactReq,
   sendEmail: sendEmail,
   firstMessage: firstMessage,
   otherMessages: otherMessages,
